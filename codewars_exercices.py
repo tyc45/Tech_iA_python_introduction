@@ -1,3 +1,6 @@
+# These here are a bunch of python exercises done in the context of my AI class
+# The exercices collection can be found here: https://www.codewars.com/collections/python-walkthrough
+
 def double_char(s):
 
     #Method doubling every single char in a string
@@ -50,3 +53,120 @@ def get_middle(s):
         return s[middle - 1] + s[middle]
     else:
         return s[middle]
+
+
+def is_isogram(string):
+
+    #https://www.codewars.com/kata/54ba84be607a92aa900000f1/train/python
+
+    string = string.lower()
+    check = "".join(sorted(string))
+    for char in check:
+        if check.index(char) < len(check) - 1:
+            if check[check.index(char) + 1] == char:
+                return False
+    return True
+
+
+import math
+def is_square(n):
+
+    #https://www.codewars.com/kata/54c27a33fb7da0db0100040e/train/python
+
+    if n < 0: return False
+    return int(math.sqrt(n)) == math.sqrt(n)
+
+
+def DNA_strand(dna):
+
+    #https://www.codewars.com/kata/554e4a2f232cdd87d9000038/train/python
+
+    result = ""
+    for char in dna:
+        if char == "C":
+            result += "G"
+        if char == "G":
+            result += "C"
+        if char == "A":
+            result += "T"
+        if char == "T":
+            result += "A"
+    return result
+
+#cooler solution
+
+pairs = {'A':'T','T':'A','C':'G','G':'C'}
+def DNA_strand(dna):
+    return ''.join([pairs[x] for x in dna])
+
+
+def solution(number):
+
+    #https://www.codewars.com/kata/514b92a657cdc65150000006/train/python
+
+    if number < 0: return 0
+    result = 0
+    for i in range(number):
+        if i % 3 == 0 or i % 5 == 0: 
+            result += i
+            
+    return result
+
+
+def find_it(seq):
+
+    #https://www.codewars.com/kata/54da5a58ea159efa38000836/train/python
+
+    for i in seq:
+        if seq.count(i) % 2 == 1:
+            return i
+
+
+
+def rooting(n):
+    
+    '''https://www.codewars.com/kata/541c8630095125aba6000c00/train/python
+    This one reduces a number to its digital root
+     '''
+
+    result = 0
+    for i in str(n):
+        result += int(i)
+    return result
+
+def digital_root(n):
+    result = n
+    while len(str(result)) > 1:
+        result = rooting(result)
+    return result
+
+
+
+def likes(names):
+
+    #https://www.codewars.com/kata/5266876b8f4bf2da9b000362/train/python
+    population = len(names)
+    if not names: return 'no one likes this'
+    if population == 1: return '{} likes this'.format(names[0])
+    if population == 2: return '{} and {} like this'.format(names[0], names[1])
+    if population == 3: return '{}, {} and {} like this'.format(names[0], names[1], names[2])
+    return '{}, {} and {} others like this'.format(names[0], names[1], str(population - 2))
+
+
+
+def persist(n):
+
+    #https://www.codewars.com/kata/55bf01e5a717a0d57e0000ec/train/python
+
+    result = 1
+    for i in str(n):
+        result *= int(i)
+    return result
+
+def persistence(n):
+    temp = n
+    count = 0
+    while len(str(temp)) > 1:
+        temp = persist(temp)
+        count += 1
+    return count
