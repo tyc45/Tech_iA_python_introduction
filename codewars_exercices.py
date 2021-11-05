@@ -202,11 +202,43 @@ def valid_parentheses(string):
     return True
 
 
-    def elevator_distance(array):
+def elevator_distance(array):
 
-        #https://www.codewars.com/kata/59f061773e532d0c87000d16/train/python
+    #https://www.codewars.com/kata/59f061773e532d0c87000d16/train/python
 
     result = 0
     for i in range(len(array) - 1):
         result += abs(array[i] - array[i+1])
     return result
+
+def elevator_distance(array):
+
+    #optimized solution
+
+    return sum(abs(a - b) for a, b in zip(array, array[1:]))
+
+
+def sc(s):
+
+    #https://www.codewars.com/kata/5710a50d336aed828100055a/train/python
+
+    count = 0
+    for i in range(len(s)):
+        count += 1
+        if i < len(s) -1:
+            count += 1
+            if s[i] != s[i+1]:
+                count += 5
+    return count
+
+
+def spin_words(sentence):
+
+    #https://www.codewars.com/kata/5264d2b162488dc400000001/solutions/python
+
+    lst = sentence.split()
+    for i in range(len(lst)):
+        temp = lst[i]
+        if len(temp) > 4:
+            lst[i] = temp[::-1]
+    return ' '.join(lst)
