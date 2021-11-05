@@ -170,3 +170,33 @@ def persistence(n):
         temp = persist(temp)
         count += 1
     return count
+
+
+def greet_developers(lst):
+
+    #https://www.codewars.com/kata/58279e13c983ca4a2a00002a/train/python
+
+    for pers in lst: 
+        pers['greeting'] = 'Hi {name}, what do you like the most about {lang}?'.format(name = pers["firstName"], lang = pers["language"])
+    return lst  
+
+def is_ruby_coming(lst): 
+
+    #https://www.codewars.com/kata/5827acd5f524dd029d0005a4/train/python
+
+    return sum(pers['language'] == 'Ruby' for pers in lst) > 0
+
+
+def valid_parentheses(string):
+
+    #https://www.codewars.com/kata/52774a314c2333f0a7000688/train/python
+
+    count_op = 0
+    count_cl = 0
+    
+    for char in string:
+        if char == '(': count_op += 1
+        if char == ')': count_cl += 1
+        if count_cl > count_op: return False
+    if count_op != count_cl: return False
+    return True
