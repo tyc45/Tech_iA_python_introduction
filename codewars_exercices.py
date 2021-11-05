@@ -200,3 +200,13 @@ def valid_parentheses(string):
         if count_cl > count_op: return False
     if count_op != count_cl: return False
     return True
+
+
+    def elevator_distance(array):
+
+        #https://www.codewars.com/kata/59f061773e532d0c87000d16/train/python
+
+    result = 0
+    for i in range(len(array) - 1):
+        result += abs(array[i] - array[i+1])
+    return result
