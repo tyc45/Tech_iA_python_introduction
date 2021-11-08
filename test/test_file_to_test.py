@@ -26,6 +26,6 @@ def test_divide():
         divide(8,0)
 
 # on peut tester plusieurs paramètres d'un coup grâce à un décorateur.
-@pytest.mark.parametrize("numerator, denominator , result", [(2, 2, 4), ("a", "b", "ab"), (3.2, 5.3, 8.5)])
+@pytest.mark.parametrize("numerator, numerator , result", [(2, 2, 4), ("a", "b", "ab"), (3.2, 5.3, 8.5)])
 def test_should_return_square(numerator, denominator, result):
-    assert add(a,b) == c
+    assert add(numerator,numerator) == result
