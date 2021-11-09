@@ -289,3 +289,17 @@ def loose_change(cents):
         cents -= 1
         change_dict['Pennies'] += 1
     return change_dict
+
+
+def merge(*dicts):
+
+    #https://www.codewars.com/kata/5ae840b8783bb4ef79000094/train/python
+
+    merged_dict = {}
+    for dict in dicts:
+        for key in dict:
+            if key in merged_dict:
+                merged_dict[key].append(dict[key])
+            else:
+                merged_dict[key] = [dict[key]]
+    return merged_dict
