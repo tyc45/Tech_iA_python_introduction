@@ -17,8 +17,9 @@ def test_add():
 
 def test_add_integer():
     assert add_integer(3,4) == 7
-    assert add_integer("a","b") == None
-    assert add_integer(3.2,5.3) == None
+    with pytest.raises(TypeError):
+        add_integer("a","b") 
+        add_integer(3.2,5.3)
 
 def test_divide():
     assert divide(8,2) == 4
