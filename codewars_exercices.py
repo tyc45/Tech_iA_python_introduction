@@ -242,3 +242,50 @@ def spin_words(sentence):
         if len(temp) > 4:
             lst[i] = temp[::-1]
     return ' '.join(lst)
+
+
+def killer(suspect_info, dead):
+
+    #https://www.codewars.com/kata/5f709c8fb0d88300292a7a9d/train/python
+
+    for key in suspect_info:
+        if set(dead).issubset(suspect_info[key]):
+         return key
+
+
+def createDict(keys, values):
+
+    #https://www.codewars.com/kata/5533c2a50c4fea6832000101/train/python
+
+    newDict = {}
+    limit = len(values) - 1
+    for i in range(len(keys)):
+        if i <= limit:
+            newDict[keys[i]] = values[i]
+        else:
+            newDict[keys[i]] = None
+    return newDict
+
+
+from math import floor
+
+def loose_change(cents):
+
+    #https://www.codewars.com/kata/5571f712ddf00b54420000ee/train/python
+
+    change_dict = {'Quarters': 0, 'Dimes': 0, 'Pennies': 0, 'Nickels': 0}
+    cents = floor(cents)
+    if cents <= 0: return change_dict
+    while cents >= 25:
+        cents -= 25
+        change_dict['Quarters'] += 1
+    while cents >= 10:
+        cents -= 10
+        change_dict['Dimes'] += 1
+    while cents >= 5:
+        cents -= 5
+        change_dict['Nickels'] += 1
+    while cents >= 1:
+        cents -= 1
+        change_dict['Pennies'] += 1
+    return change_dict
