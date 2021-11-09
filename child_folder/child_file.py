@@ -18,6 +18,7 @@ if __name__ == "__main__":
     currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
     # A partir de celui-ci je déduis le chemin de mon répertoire parent
     parentdir = os.path.dirname(currentdir)
+
     # J'ajoute le chemin de mon répertoire parent au "python path" 
     # qui est l'endroit ou la fonction import va chercher ce qu'elle est capable d'importer
     sys.path.insert(0, parentdir) 
@@ -30,9 +31,10 @@ if __name__ == "__main__":
     
     # de nouveau je dois trouver le chemin
     brotherdir = os.path.join(parentdir, "other_folder")
+
     # puis l'ajouter au python path
     sys.path.insert(0, brotherdir)
 
-    import other_folder_file
+    import other_folder_file 
     print(other_folder_file.other_folder_function())
 
