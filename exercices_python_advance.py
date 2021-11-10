@@ -24,5 +24,5 @@ vehicules_weight = {"truck": 10000,
                     "car": 1200,
                     "shoes": 0.5
 }
-slim_vehicles = [name for name, weight in vehicules_weight.items() if weight < 5000]
+slim_vehicles = [name.upper() for name in vehicules_weight if vehicules_weight[name] < 5000]
 print(slim_vehicles)
