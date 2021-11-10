@@ -35,8 +35,7 @@ print(dict)
 
 
 # Compréhension de dictionnaire: Exo 2
-rng = [i for i in range(100, 160, 10)]
-div_hundred = {i:i/100 for i in rng}
+div_hundred = {i:i/100 for i in range(100, 160, 10)}
 print(div_hundred)
 
 
